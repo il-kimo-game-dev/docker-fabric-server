@@ -1,0 +1,7 @@
+version: '3.8'
+
+services:
+  fabric:
+    build: .
+    ports:
+      - '25565:25565'

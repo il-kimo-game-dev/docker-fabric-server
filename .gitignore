@@ -1,0 +1,16 @@
+# ignore eula.txt since we already create one ourselves
+eula.txt
+
+# ignore other MC server files
+ops.json
+whitelist.json
+.fabric/
+.mixin.out/
+logs/
+
+# Environment Variables
+.env
+
+# IntelliJ
+.idea
+*.iml

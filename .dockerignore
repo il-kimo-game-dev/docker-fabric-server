@@ -1,0 +1,22 @@
+# ignore eula.txt since we already create one ourselves
+eula.txt
+
+# ignore other MC server files
+ops.json
+whitelist.json
+.fabric/
+.mixin.out/
+logs/
+
+# misc other repository files
+docker-compose.yml
+README.md
+LICENSE.md
+
+# Environment Variables
+.env
+.env.example
+
+# IntelliJ
+.idea
+*.iml
