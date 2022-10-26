@@ -1,9 +1,9 @@
 FROM amazoncorretto:19-alpine-jdk AS base
-ENV JAVA_MAX_RAM 4G
+ENV JAVA_MAX_RAM 7G
 ENV JAVA_MIN_RAM 2G
 
 # metadata
-LABEL maintainer="UpcraftLP <https://github.com/UpcraftLP>"
+LABEL maintainer="ilkimo <https://github.com/ilkimo>"
 
 #set working directory
 WORKDIR /app
