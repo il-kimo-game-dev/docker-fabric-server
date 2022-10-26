@@ -1,4 +1,4 @@
-FROM adoptopenjdk/openjdk16:jdk-16.0.1_9-alpine AS base
+FROM amazoncorretto:19-alpine-jdk AS base
 ENV JAVA_MAX_RAM 4G
 ENV JAVA_MIN_RAM 2G
 
