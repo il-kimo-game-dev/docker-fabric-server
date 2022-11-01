@@ -7,5 +7,6 @@ services:
       - '25565:25565'
     volumes:
       - minecraft_volume:/home/server
+    restart: unless-stopped
 volumes:
   minecraft_volume:
