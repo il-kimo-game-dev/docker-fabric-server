@@ -1,12 +1,13 @@
 FROM amazoncorretto:19-alpine-jdk AS base
 ENV JAVA_MAX_RAM 7G
 ENV JAVA_MIN_RAM 2G
+ENV SERVER_HOME /home/server/
 
 # metadata
 LABEL maintainer="ilkimo <https://github.com/ilkimo>"
 
 #set working directory
-WORKDIR /app
+WORKDIR ${SERVER_HOME}
 
 FROM base AS build
 # install curl
@@ -27,10 +28,10 @@ RUN echo eula=true >> eula.txt
 FROM base AS deploy
 
 # add previously created eula file
-COPY --from=build /app/eula.txt .
+COPY --from=build ${SERVER_HOME}/eula.txt .
 
 # copy fabric files
-COPY --from=build /app/ .
+COPY --from=build ${SERVER_HOME}/ .
 
 # copy configuration files
 COPY server.properties .
