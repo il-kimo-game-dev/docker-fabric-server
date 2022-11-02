@@ -35,6 +35,7 @@ COPY --from=build ${SERVER_HOME}/ .
 
 # copy configuration files
 COPY server.properties .
+COPY roles.json ./config/
 
 # main connection port
 EXPOSE 25565

@@ -1,0 +1,12 @@
+{
+  "everyone": {
+    "overrides": {
+      "commands": {
+        "help": "allow",
+        "role": "deny",
+        "player": "allow",
+        "tick health": "allow"
+      }
+    }
+  }
+}
