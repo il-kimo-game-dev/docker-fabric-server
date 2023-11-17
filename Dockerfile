@@ -1,9 +1,10 @@
 FROM amazoncorretto:19-alpine-jdk AS base
 ENV JAVA_MAX_RAM 4G
 ENV JAVA_MIN_RAM 2G
+ARG MC_VERSION=latest
 
 # metadata
-LABEL maintainer="UpcraftLP <https://github.com/UpcraftLP>"
+LABEL maintainer="il-kimo <https://github.com/il-kimo>"
 
 #set working directory
 WORKDIR /app
@@ -18,8 +19,8 @@ RUN apk add --no-cache jq
 # get latest fabric installer
 RUN curl $(curl https://meta.fabricmc.net/v2/versions/installer | jq -r '.[0].url') --output fabric-installer.jar
 
-# install fabric
-RUN java -jar fabric-installer.jar server -downloadMinecraft
+# install fabric 
+RUN java -jar fabric-installer.jar server -downloadMinecraft -mcversion $MC_VERSION
 
 # create eula.txt
 RUN echo eula=true >> eula.txt
@@ -34,6 +35,9 @@ COPY --from=build /app/ .
 
 # copy configuration files
 COPY server.properties .
+
+# copy mods
+COPY mods /app/mods
 
 # main connection port
 EXPOSE 25565

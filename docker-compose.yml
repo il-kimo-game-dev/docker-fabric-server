@@ -2,6 +2,10 @@ version: '3.8'
 
 services:
   fabric:
-    build: .
+    build:
+      context: .
+      args:
+        MC_VERSION: "${MC_VERSION-latest}"
     ports:
       - '25565:25565'
+
